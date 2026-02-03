@@ -62,5 +62,12 @@ def subscribe():
     flash(f'Thank you {name}! You have been subscribed to our newsletter.', 'success')
     return redirect(url_for('index'))
 
+@app.route('/send_message', methods=['POST'])
+def send_message():
+    name = request.form.get('name')
+    email = request.form.get('email')
+    subject = request.form.get('subject')
+    message = request.form.get('message')
+
 if __name__ == '__main__':
     app.run(debug=True)
